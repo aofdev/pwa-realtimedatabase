@@ -4,9 +4,8 @@
 
 
 ## config Setup
-  At -> scripts/app.js
+  At -> scripts/app.js [firebase console](https://console.firebase.google.com/)
 ``` bash
-# [firebase console](https://console.firebase.google.com/)
   const config = {
 		//copy firebase console
   };
