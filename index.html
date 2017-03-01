@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA</title>
+
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWA">
+    <script src="node_modules/sw-toolbox/companion.js" data-service-worker="service-worker.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="js/sweetalert.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav class="nav has-shadow">
+        <div class="container">
+            <div class="nav-center">
+                <a class="nav-item is-tab is-active"><b>PWA</b></a>
+            </div>
+        </div>
+    </nav>
+
+    <section style="background-color:transparent" class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="card is-fullwidth">
+                        <header style="background-color: #3273dc" class="card-header ">
+                            <p style="color: #ffffff" class="card-header-title">
+                                Realtime database
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <pre style="font-size:16px;color: red" id="object"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card is-fullwidth">
+                        <header style="background-color: #23d160" class="card-header">
+                            <p style="color: #ffffff" class="card-header-title">
+                                Sync List
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul class="menu-list" id="list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card is-fullwidth">
+                        <header style="background-color: #ffdd57" class="card-header ">
+                            <p style="color: #ffffff" class="card-header-title">
+                                insert data
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <form id="form-data" action="#">
+                                    <label class="label">value</label>
+                                    <p class="control">
+                                        <input class="input" type="text" id="Insert" placeholder="Text input" required>
+                                    </p>
+                                    <button id="submit"  type="submit" class="button is-primary">
+                                        Save
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card is-fullwidth">
+                        <header style="background-color: #ff470f" class="card-header">
+                            <p style="color: #ffffff" class="card-header-title">
+                                Edit List
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                              <form id="form-update" action="#">
+                                  <label class="label">value</label>
+                                  <p class="control">
+                                      <input class="input" type="text" id="updateForm" placeholder="Text input" required disabled>
+                                  </p>
+                                  <button id="submit"  type="submit" class="button is-danger">
+                                      Edit
+                                  </button>
+                              </form>
+                                <ul class="menu-list" id="edit"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card is-fullwidth">
+                        <header style="background-color: #b86bff" class="card-header">
+                            <p style="color: #ffffff" class="card-header-title">
+                                Delete List
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul class="menu-list" id="deleteData"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      </div>
+
+            </div>
+    </section>
+
+      <section style="background-color:transparent" class="section">
+
+        <div class="container">
+          <div class="columns">
+              <div class="column">
+          <div class="card is-fullwidth">
+              <header style="background-color: #ff3860" class="card-header ">
+                  <p style="color: #ffffff" class="card-header-title">
+                    youtube trailer movies
+                  </p>
+              </header>
+              <div class="card-content">
+                  <div class="content">
+                    <div class="columns is-multiline is-mobile" id="divv">
+
+
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      </section>
+
+
+  
+    <script src="scripts/app.js"></script>
+    <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    }
+    </script>
+</body>
+
+</html>
