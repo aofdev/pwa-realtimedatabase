@@ -1,6 +1,6 @@
-# Progressive Web Apps with Firebase RealtimeDatabase 
+# Progressive Web Apps with Firebase RealtimeDatabase 🚀
 
-> A Progressive Web Apps project
+> Progressive Web Apps project
 
 ![alt tag](http://i.imgur.com/OYw1Syu.png)
 ## config Setup
