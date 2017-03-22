@@ -3,7 +3,7 @@
 > Progressive Web Apps project
 
 ![alt tag](http://i.imgur.com/OYw1Syu.png)
-## config Setup
+## Setup
   At -> scripts/app.js [firebase console](https://console.firebase.google.com/)
 ``` bash
   const config = {
