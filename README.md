@@ -1,6 +1,6 @@
 # Progressive Web Apps with Firebase RealtimeDatabase 🚀
 
-> Progressive Web Apps project  [DEMO](https://aofdev.github.io/pwa-realtimedatabase/)
+> Progressive Web Apps project
 
 ![alt tag](http://i.imgur.com/OYw1Syu.png)
 ## Setup
